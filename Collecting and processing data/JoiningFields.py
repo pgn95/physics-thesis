@@ -288,8 +288,10 @@ elif ind == '6':
              MarkerEdgeColor=[0.75,0,0], MarkerFaceColor=[0.75,0,0])
     plt.plot(circles_2mass, circles_allwise, 'ro', MarkerSize=15,
              MarkerEdgeColor=[0,0,0.5], MarkerFaceColor='none')
-    plt.xlabel(r'$\rho_{2MASS}/(Sources\cdotº^{-2})$', fontsize=18)
-    plt.ylabel(r'$\rho_{AllWISE}/(Sources\cdotº^{-2})$', fontsize=18)
+    plt.xlabel(r'$\rho_{2MASS}/(\mathrm{Sources}\cdot\mathrm{deg}^{-2})$',
+               fontsize=18)
+    plt.ylabel(r'$\rho_{AllWISE}/(\mathrm{Sources}\cdot\mathrm{deg}^{-2})$',
+               fontsize=18)
     plt.xscale('log')
     plt.yscale('log')
     plt.xticks(fontsize=16)
@@ -302,8 +304,10 @@ elif ind == '6':
     density_allwise = density_allwise[density_allwise >= threshold];
     plt.plot(density_2mass, density_allwise, 'ro', MarkerSize=2.5,
              MarkerEdgeColor=[0.75,0,0], MarkerFaceColor=[0.75,0,0])
-    plt.xlabel(r'$\rho_{2MASS}/(Sources\cdotº^{-2})$', fontsize=18)
-    plt.ylabel(r'$\rho_{AllWISE}/(Sources\cdotº^{-2})$', fontsize=18)
+    plt.xlabel(r'$\rho_{2MASS}/(\mathrm{Sources}\cdot\mathrm{deg}^{-2})$',
+               fontsize=18)
+    plt.ylabel(r'$\rho_{AllWISE}/(\mathrm{Sources}\cdot\mathrm{deg}^{-2})$',
+               fontsize=18)
     plt.xscale('log')
     plt.yscale('log')
     # Deciding how to divide the points in different groups
