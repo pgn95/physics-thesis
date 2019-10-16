@@ -1,0 +1,39 @@
+# =====================================================================
+# Script that performs the cross-correlation between two dataset from
+# different catalogues. This script must be run by ARCHES xMatch
+# service. Before running it, the files must be uploaded and the number
+# of the dataset must be changed manually in the script.
+# ---------------------------------------------------------------------
+# Author: Pablo Gómez Nicolás
+# Year: 2018/19
+# ---------------------------------------------------------------------
+# Documentation: 
+#       http://serendib.unistra.fr/ARCHESWebService/XMatch_soft_doc.pdf
+# ---------------------------------------------------------------------
+# Input (before running the script):
+#   * Files, in FITS format, with the data to cross-identify. The files
+#     must be uploaded to the web before running the script, and the 
+#     file name must be changed here manually. The area must also be
+#     written.
+#
+# Output:
+#   * Cross-identified data, in FITS format.
+# =====================================================================
+
+# Loading 2MASS data
+get FileLoader file=2MASSCleanSet1.tbl
+set pos ra=ra dec=dec
+set poserr type=ELLIPSE param1=err_maj param2=err_min param3=err_ang
+set cols *
+prefix 2mass_
+
+# Loading AllWISE data
+get FileLoader file=AllWISECleanSet1.tbl
+set pos ra=ra dec=dec
+set poserr type=COV_ELLIPSE param1=sigra param2=sigdec param3=sigradec*abs(sigradec)
+set cols *
+prefix allwise_
+
+# Se ejecuta el xmatch
+xmatch probaN_v1 completeness=0.9973 joins=G area=0.060748
+save XMatchSet1.tbl fits
