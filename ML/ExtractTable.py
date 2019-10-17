@@ -278,4 +278,4 @@ bashorder = ('sh stilts tcopy ifmt=ascii ofmt=fits in=' + rootfile + '.txt '
 subprocess.run(bashorder, shell=True)
 print('Data file saved successfully, check your folder')
 
-\print('\nSCRIPT FINISHED\n')
+print('\nSCRIPT FINISHED\n')
